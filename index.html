@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sourav Gupta — Data Scientist & AI Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #0f1117;
+    --ink-secondary: #4a4f5e;
+    --ink-muted: #8a8f9e;
+    --bg: #fafafa;
+    --surface: #ffffff;
+    --border: #e4e6ec;
+    --accent: #2357f5;
+    --accent-light: #eef2ff;
+    --accent-mid: #c7d4fd;
+    --green: #0d9e6e;
+    --green-light: #e6f9f3;
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER / NAV ─── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250,250,250,0.88);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--ink-secondary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--accent); }
+
+  .nav-cta {
+    background: var(--ink);
+    color: #fff !important;
+    padding: 0.45rem 1.1rem;
+    border-radius: 6px;
+    font-size: 0.8rem !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: #fff !important; }
+
+  /* ─── HERO ─── */
+  .hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 5rem 2rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .hero-text h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .hero-text h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    color: var(--ink-secondary);
+    max-width: 520px;
+    margin-bottom: 1.8rem;
+    line-height: 1.75;
+  }
+
+  .hero-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid var(--accent-mid);
+    letter-spacing: 0.02em;
+  }
+
+  .tag.green {
+    background: var(--green-light);
+    color: var(--green);
+    border-color: #a8e8d5;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .btn-primary:hover { background: #1a46d6; transform: translateY(-1px); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.65rem 1.4rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    transition: border-color 0.2s, transform 0.15s;
+  }
+
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  /* PHOTO CARD */
+  .hero-photo-wrap {
+    position: relative;
+  }
+
+  .hero-photo-card {
+    background: var(--surface);
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.06);
+  }
+
+  .hero-photo-card img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+    aspect-ratio: 3/4;
+  }
+
+  .photo-badge {
+    position: absolute;
+    bottom: -1rem;
+    left: -1rem;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.7rem 1rem;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.8rem;
+  }
+
+  .badge-dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--green);
+    flex-shrink: 0;
+    box-shadow: 0 0 0 3px var(--green-light);
+  }
+
+  .badge-text strong { display: block; font-weight: 600; font-size: 0.8rem; }
+  .badge-text span { color: var(--ink-muted); font-size: 0.72rem; }
+
+  /* ─── STATS STRIP ─── */
+  .stats-strip {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+
+  .stats-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat-item {
+    padding: 1.6rem 0;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    color: var(--accent);
+    display: block;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTIONS ─── */
+  .section {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+  }
+
+  .section-subtitle {
+    color: var(--ink-secondary);
+    font-size: 0.95rem;
+    max-width: 560px;
+    margin-bottom: 3rem;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 0;
+  }
+
+  /* ─── ABOUT ─── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    color: var(--ink-secondary);
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .about-text p:last-child { margin-bottom: 0; }
+
+  .about-highlights {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .highlight-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1rem 1.2rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.9rem;
+  }
+
+  .highlight-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: var(--accent-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .highlight-card h4 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+
+  .highlight-card p {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .experience-list { display: grid; gap: 1.5rem; }
+
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    position: relative;
+    transition: box-shadow 0.2s;
+  }
+
+  .exp-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+  .exp-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 20%;
+    bottom: 20%;
+    width: 3px;
+    background: var(--accent);
+    border-radius: 0 3px 3px 0;
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .exp-card:hover::before { opacity: 1; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 0.8rem;
+    gap: 1rem;
+  }
+
+  .exp-title { font-size: 1rem; font-weight: 600; color: var(--ink); }
+  .exp-company { font-size: 0.875rem; color: var(--accent); font-weight: 500; margin-top: 0.15rem; }
+
+  .exp-meta {
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .exp-period {
+    font-size: 0.78rem;
+    color: var(--ink-muted);
+    font-weight: 500;
+    display: block;
+  }
+
+  .exp-location {
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: grid;
+    gap: 0.4rem;
+  }
+
+  .exp-bullets li {
+    font-size: 0.875rem;
+    color: var(--ink-secondary);
+    padding-left: 1.1rem;
+    position: relative;
+    line-height: 1.65;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.78rem;
+    top: 0.25em;
+  }
+
+  /* ─── PROJECTS ─── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+
+  .project-card:hover {
+    box-shadow: 0 8px 32px rgba(35,87,245,0.08);
+    border-color: var(--accent-mid);
+  }
+
+  .project-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    color: var(--ink-secondary);
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 1.2rem;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .stack-pill {
+    font-size: 0.7rem;
+    font-weight: 500;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    color: var(--ink-secondary);
+  }
+
+  .project-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .project-link:hover { text-decoration: underline; }
+
+  /* ─── SKILLS ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .skill-category {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.4rem;
+  }
+
+  .skill-category h4 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .skill-item {
+    font-size: 0.78rem;
+    padding: 0.3rem 0.65rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    color: var(--ink-secondary);
+    font-weight: 500;
+  }
+
+  /* ─── CERTIFICATIONS ─── */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+  }
+
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+  }
+
+  .cert-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-card h4 { font-size: 0.85rem; font-weight: 600; line-height: 1.35; }
+  .cert-card p { font-size: 0.75rem; color: var(--ink-muted); margin-top: 0.15rem; }
+
+  /* ─── CONTACT ─── */
+  .contact-section {
+    background: var(--ink);
+    padding: 5rem 2rem;
+  }
+
+  .contact-inner {
+    max-width: 1120px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .contact-text h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .contact-text p {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    color: rgba(255,255,255,0.65);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: color 0.2s;
+  }
+
+  .contact-link:hover { color: #fff; }
+
+  .contact-link-icon {
+    font-size: 1rem;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  .contact-form {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius);
+    padding: 2rem;
+  }
+
+  .form-group { margin-bottom: 1.1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.03em;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 6px;
+    padding: 0.65rem 0.9rem;
+    color: #fff;
+    font-size: 0.875rem;
+    font-family: 'Inter', sans-serif;
+    transition: border-color 0.2s;
+    outline: none;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.25); }
+
+  .form-group input:focus,
+  .form-group textarea:focus { border-color: rgba(255,255,255,0.35); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .btn-form {
+    width: 100%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+
+  .btn-form:hover { background: #1a46d6; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #060810;
+    padding: 1.5rem 2rem;
+    text-align: center;
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.25);
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      padding: 3rem 1.5rem 3rem;
+    }
+
+    .hero-photo-wrap { max-width: 280px; margin: 0 auto; }
+    .hero-photo-card img { aspect-ratio: 1/1; object-position: top center; }
+
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .stat-item:nth-child(2) { border-right: none; }
+
+    .about-grid { grid-template-columns: 1fr; }
+    .contact-inner { grid-template-columns: 1fr; }
+
+    nav { padding: 0 1.2rem; }
+    .nav-links { gap: 1.2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .nav-links li:not(:last-child) { display: none; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); }
+    .hero-actions { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Sourav Gupta</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <h1>Data Scientist &<br><em>AI Engineer</em><br>based in Berlin</h1>
+    <p class="hero-subtitle">
+      3+ years turning complex datasets into business decisions — across ETL pipelines, BI dashboards, predictive analytics, and Generative AI applications. MSc Data Science & AI at GISMA, currently open to full-time roles in Berlin.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Python</span>
+      <span class="tag">SQL</span>
+      <span class="tag">LangChain</span>
+      <span class="tag">RAG / LLMs</span>
+      <span class="tag">Power BI</span>
+      <span class="tag">AWS</span>
+      <span class="tag green">✓ Open to work</span>
+    </div>
+    <div class="hero-actions">
+      <a href="Sourav_Gupta_CV.pdf" download class="btn-primary">
+        ↓ Download CV
+      </a>
+      <a href="#contact" class="btn-secondary">Get in touch →</a>
+      <a href="https://www.linkedin.com/in/sourav-gupta166/" target="_blank" class="btn-secondary">LinkedIn ↗</a>
+    </div>
+  </div>
+  <div class="hero-photo-wrap">
+    <div class="hero-photo-card">
+      <img src="PFP.jpeg" alt="Sourav Gupta" />
+    </div>
+    <div class="photo-badge">
+      <div class="badge-dot"></div>
+      <div class="badge-text">
+        <strong>Sourav Gupta</strong>
+        <span>Berlin, Germany</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">Years Experience</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">150K</span>
+      <span class="stat-label">Records Migrated</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">98%</span>
+      <span class="stat-label">Data Accuracy</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">4</span>
+      <span class="stat-label">Certifications</span>
+    </div>
+  </div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="section-eyebrow">About</div>
+  <h2 class="section-title">Building intelligence from data</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a data scientist and AI engineer completing my MSc in Data Science, AI & Digital Business at GISMA Berlin, while working as a Werkstudent Business Analyst at Emerson. My work sits at the intersection of data engineering, machine learning, and Generative AI.</p>
+      <p>I've spent 3+ years delivering end-to-end data projects — from credit risk pipelines at Godrej Infotech in Mumbai, to large-scale Oracle ERP migrations at Emerson in Berlin. I build things that actually move metrics: 98% accuracy on a 150K-record migration, 40% reduction in downstream data quality issues, real-time dashboards that caught defects before go-live.</p>
+      <p>Currently targeting Data Scientist, AI Engineer, and Analytics Engineer roles in Berlin. I bring fluency in Python, SQL, LangChain, and Power BI — and a habit of building company-specific portfolio projects to demonstrate direct business value.</p>
+    </div>
+    <div class="about-highlights">
+      <div class="highlight-card">
+        <div class="highlight-icon">🎓</div>
+        <div>
+          <h4>MSc Data Science, AI & Digital Business</h4>
+          <p>GISMA University of Applied Sciences, Berlin — Apr 2024 – Sep 2026</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🏢</div>
+        <div>
+          <h4>Werkstudent Business Analyst</h4>
+          <p>Emerson, Berlin — July 2025 – Present</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">📍</div>
+        <div>
+          <h4>Based in Berlin</h4>
+          <p>Open to full-time roles. English C2, German B1.</p>
+        </div>
+      </div>
+      <div class="highlight-card">
+        <div class="highlight-icon">🤖</div>
+        <div>
+          <h4>Specialisation: Generative AI</h4>
+          <p>LLMs, RAG pipelines, Agentic AI, LangChain, OpenAI API</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- EXPERIENCE -->
+<section class="section" id="experience">
+  <div class="section-eyebrow">Experience</div>
+  <h2 class="section-title">Where I've worked</h2>
+  <p class="section-subtitle">From credit risk analytics in Mumbai to ERP migration and AI engineering in Berlin.</p>
+
+  <div class="experience-list">
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Werkstudent Business Analyst</div>
+          <div class="exp-company">Emerson · Berlin, Germany</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-period">Jul 2025 – Present</span>
+          <div class="exp-location">Full-time student role</div>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Designed and executed end-to-end data migration of 100K–150K sales records (Microsoft Dynamics NAV → Oracle ERP), achieving 98–99% accuracy through rigorous schema enforcement and validation rules.</li>
+        <li>Built Power BI observability dashboards tracking migration health, data freshness, and validation failures in real time — enabling stakeholders to detect issues before go-live.</li>
+        <li>Standardised ETL patterns across reporting systems, reducing downstream data quality issues by 40% and eliminating manual fixes.</li>
+        <li>Managed 150+ defects via structured workflows, achieving 95% on-time resolution and a stable production transition with zero critical post-production incidents.</li>
+        <li>Collaborated with finance/IT to define data contracts and validation logic (SQL, Excel), cutting manual quality effort by 35%.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Data Analyst</div>
+          <div class="exp-company">Godrej Infotech Limited · Mumbai, India</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-period">Jun 2023 – Feb 2025</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Built and maintained ETL pipelines (SQL, SSIS) ingesting credit/fraud data from enterprise systems for risk modelling.</li>
+        <li>Created Power BI dashboards monitoring 10+ KPIs (Loan Default Rate, Fraud Indicators, Credit Risk Metrics) with anomaly alert thresholds.</li>
+        <li>Developed DAX-calculated metrics with version control, establishing a single source of truth for risk reporting.</li>
+        <li>Designed idempotent data transformation patterns, reducing downstream manual fixes by ~20% and improving pipeline stability.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Data Analytics & Visualisation Intern</div>
+          <div class="exp-company">Vosyn Inc. · Ontario, Canada (Remote)</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-period">Feb 2025 – May 2025</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Analysed 40K+ record datasets to surface trends and performance gaps, improving decision-making turnaround by ~15%.</li>
+        <li>Developed Power BI dashboards tracking 8–10 KPIs, reducing manual reporting effort by ~20%.</li>
+        <li>Cleaned and transformed raw datasets to improve data accuracy by ~18%, enabling more reliable reporting outputs.</li>
+      </ul>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-header">
+        <div>
+          <div class="exp-title">Sr. Business Development Associate</div>
+          <div class="exp-company">Byju's · Mumbai, India</div>
+        </div>
+        <div class="exp-meta">
+          <span class="exp-period">May 2021 – Apr 2023</span>
+        </div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Led data-driven outreach campaigns, increasing customer engagement by ~20–25% via targeted email and content strategies.</li>
+        <li>Improved client retention by ~15% through CRM analysis and refined sales strategy.</li>
+        <li>Analysed customer behaviour and campaign performance (Excel, CRM) to optimise lead generation and conversion.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+  <div class="section-eyebrow">Projects</div>
+  <h2 class="section-title">Things I've built</h2>
+  <p class="section-subtitle">Company-targeted portfolio projects, production-ready AI systems, and ML pipelines.</p>
+
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-label">Featured · AI / Reward Optimisation</div>
+      <div class="project-title">Reward Dependency Intelligence System</div>
+      <p class="project-desc">AI-powered incentive optimisation platform for rewarded user acquisition. Uses uplift modelling and causal inference to identify offer structures that drive genuine engagement vs. reward-dependent churn — built specifically for the Almedia/Freecash ecosystem.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span><span class="stack-pill">LangChain</span><span class="stack-pill">Uplift Modelling</span><span class="stack-pill">Causal Inference</span><span class="stack-pill">Scikit-learn</span>
+      </div>
+      <a href="https://github.com/souravgupta166" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-label">AI Engineering · Agentic</div>
+      <div class="project-title">Multi-Agent AI System for Operational Automation</div>
+      <p class="project-desc">Orchestrated LLM-based agents (GPT API) for automating associate-level business workflows — data analysis, task execution, and decision support. Includes a RAG pipeline with vector embeddings for contextual decision-making. Deployed at scale for high-volume use cases.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span><span class="stack-pill">OpenAI API</span><span class="stack-pill">LangChain</span><span class="stack-pill">RAG</span><span class="stack-pill">Vector DB</span><span class="stack-pill">Agentic AI</span>
+      </div>
+      <a href="https://github.com/souravgupta166" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-label">AI Engineering · Knowledge Retrieval</div>
+      <div class="project-title">RAG-Based Enterprise Knowledge Assistant</div>
+      <p class="project-desc">AI-powered knowledge assistant for enterprise documentation. Full pipeline: document ingestion, chunking, embedding generation, semantic retrieval, and conversational access. Improved factual accuracy over vanilla LLM responses and reduced manual search effort significantly.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span><span class="stack-pill">LLMs</span><span class="stack-pill">RAG</span><span class="stack-pill">Vector Search</span><span class="stack-pill">Embeddings</span>
+      </div>
+      <a href="https://github.com/souravgupta166" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+
+    <div class="project-card">
+      <div class="project-label">Machine Learning · Classification</div>
+      <div class="project-title">Customer Churn Prediction Model</div>
+      <p class="project-desc">End-to-end ML pipeline predicting customer churn from behavioural and transactional data. Includes feature engineering, Random Forest and Gradient Boosting models, and evaluation via precision, recall, F1, and ROC-AUC. Translated model outputs into retention strategy recommendations.</p>
+      <div class="project-stack">
+        <span class="stack-pill">Python</span><span class="stack-pill">Scikit-learn</span><span class="stack-pill">Random Forest</span><span class="stack-pill">Gradient Boosting</span><span class="stack-pill">Feature Engineering</span>
+      </div>
+      <a href="https://github.com/souravgupta166" target="_blank" class="project-link">View on GitHub ↗</a>
+    </div>
+
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="section-eyebrow">Skills</div>
+  <h2 class="section-title">Technical toolkit</h2>
+  <p class="section-subtitle">Core technologies I use day-to-day across data engineering, ML, and AI.</p>
+
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h4>Programming</h4>
+      <div class="skill-items">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">SQL</span>
+        <span class="skill-item">SparkSQL</span>
+        <span class="skill-item">DAX</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Data Engineering</h4>
+      <div class="skill-items">
+        <span class="skill-item">ETL / SSIS</span>
+        <span class="skill-item">Databricks</span>
+        <span class="skill-item">Apache Spark</span>
+        <span class="skill-item">Kafka</span>
+        <span class="skill-item">Debezium</span>
+        <span class="skill-item">Data Warehousing</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Machine Learning</h4>
+      <div class="skill-items">
+        <span class="skill-item">Scikit-learn</span>
+        <span class="skill-item">Feature Engineering</span>
+        <span class="skill-item">Forecasting</span>
+        <span class="skill-item">Model Evaluation</span>
+        <span class="skill-item">Uplift Modelling</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Generative AI</h4>
+      <div class="skill-items">
+        <span class="skill-item">LangChain</span>
+        <span class="skill-item">OpenAI API</span>
+        <span class="skill-item">RAG</span>
+        <span class="skill-item">Vector DBs</span>
+        <span class="skill-item">Prompt Engineering</span>
+        <span class="skill-item">Agentic AI</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>BI & Analytics</h4>
+      <div class="skill-items">
+        <span class="skill-item">Power BI</span>
+        <span class="skill-item">Excel</span>
+        <span class="skill-item">KPI Reporting</span>
+        <span class="skill-item">Dashboard Design</span>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h4>Cloud & Infrastructure</h4>
+      <div class="skill-items">
+        <span class="skill-item">AWS S3</span>
+        <span class="skill-item">AWS Redshift</span>
+        <span class="skill-item">AWS SageMaker</span>
+        <span class="skill-item">Oracle ERP</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="section-divider" />
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+  <div class="section-eyebrow">Certifications</div>
+  <h2 class="section-title">Credentials</h2>
+  <div class="cert-grid">
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#fff3e0;">☁️</div>
+      <div>
+        <h4>AWS AI Practitioner</h4>
+        <p>Amazon Web Services</p>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#e8f5e9;">📊</div>
+      <div>
+        <h4>SAP Analytics Cloud & Cloud ERP</h4>
+        <p>SAP</p>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#e3f2fd;">🎓</div>
+      <div>
+        <h4>Cloud Computing</h4>
+        <p>University of Leeds</p>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon" style="background:#f3e5f5;">⚛️</div>
+      <div>
+        <h4>Understanding Quantum Computers</h4>
+        <p>FutureLearn / Keio University</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="contact-text">
+      <h2>Let's work together</h2>
+      <p>Open to Data Scientist, AI Engineer, and Analytics Engineer roles in Berlin. I respond within 24 hours.</p>
+      <div class="contact-links">
+        <a href="mailto:souravgupta166@gmail.com" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          souravgupta166@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/sourav-gupta166/" target="_blank" class="contact-link">
+          <span class="contact-link-icon">in</span>
+          linkedin.com/in/sourav-gupta166
+        </a>
+        <a href="https://github.com/souravgupta166" target="_blank" class="contact-link">
+          <span class="contact-link-icon">⌥</span>
+          github.com/souravgupta166
+        </a>
+        <a href="tel:+4915565988982" class="contact-link">
+          <span class="contact-link-icon">☏</span>
+          +49 155 659 88982
+        </a>
+      </div>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+      <div class="form-group">
+        <label>Your name</label>
+        <input type="text" name="name" placeholder="Jane Smith" required />
+      </div>
+      <div class="form-group">
+        <label>Email address</label>
+        <input type="email" name="email" placeholder="jane@company.com" required />
+      </div>
+      <div class="form-group">
+        <label>Message</label>
+        <textarea name="message" placeholder="Tell me about the role or opportunity…" required></textarea>
+      </div>
+      <button type="submit" class="btn-form">Send message →</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  © 2025 Sourav Gupta · Berlin, Germany · Built with care, not a template.
+</footer>
+
+</body>
+</html>
